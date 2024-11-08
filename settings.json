@@ -1,0 +1,89 @@
+{
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2",
+    "enable_experimental_live_diffs": true
+  },
+  "base_keymap": "VSCode",
+  "ui_font_size": 16,
+  "buffer_font_size": 14,
+  "buffer_font_family": "Ubuntu Mono",
+  "vim_mode": false,
+  "relative_line_numbers": true,
+  "tab_bar": {
+    "show": true
+  },
+  "scrollbar": {
+    "show": "never"
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware"
+  },
+  "centered_layout": {
+    "left_padding": 0.15,
+    "right_padding": 0.15
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "Andromeda"
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
+  },
+  "chat_panel": {
+    "dock": "left"
+  },
+  "current_line_highlight": "line",
+  "show_completions_on_input": false,
+  "languages": {
+    "Python": {
+      "tab_size": 2,
+      "formatter": "language_server",
+      "format_on_save": "on",
+      "lsp": {
+        "pyright": {
+          "settings": {
+            "python.analysis": {
+              "diagnosticMode": "workspace",
+              "typeCheckingMode": "strict"
+            },
+            "python": {
+              "pythonPath": ".venv/bin/python"
+            }
+          }
+        }
+      }
+    },
+    "Rust": {
+      "formatter": "language_server",
+      "format_on_save": "on"
+    },
+    "Cpp": {
+      "lsp": {
+        "clangd": {
+          "binary": {
+            "path": "/usr/bin/clangd",
+            "arguments": []
+          }
+        }
+      }
+    }
+  },
+  "features": {
+    "inline_completion_provider": "copilot"
+  }
+}
