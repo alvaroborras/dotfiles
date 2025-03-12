@@ -2,10 +2,18 @@
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
+      "model": "claude-3-7-sonnet-latest"
     },
-    "version": "2",
-    "enable_experimental_live_diffs": true
+    "version": "2"
+  },
+  "notification_panel": {
+    "dock": "left"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "project_panel": {
+    "dock": "left"
   },
   "base_keymap": "VSCode",
   "ui_font_size": 16,
@@ -16,9 +24,14 @@
   "tab_bar": {
     "show": true
   },
-  "scrollbar": {
-    "show": "never"
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true
   },
+  "scrollbar": {
+    "show": "always"
+  },
+  "cursors": "false",
   "indent_guides": {
     "enabled": true,
     "coloring": "indent_aware"
@@ -29,8 +42,8 @@
   },
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "Andromeda"
+    "light": "Tokyo Night Storm",
+    "dark": "Sandcastle"
   },
   "git": {
     "git_gutter": "tracked_files",
@@ -48,25 +61,16 @@
     "dock": "left"
   },
   "current_line_highlight": "line",
-  "show_completions_on_input": false,
+  "show_completions_on_input": true,
   "languages": {
     "Python": {
-      "tab_size": 2,
-      "formatter": "language_server",
-      "format_on_save": "on",
-      "lsp": {
-        "pyright": {
-          "settings": {
-            "python.analysis": {
-              "diagnosticMode": "workspace",
-              "typeCheckingMode": "strict"
-            },
-            "python": {
-              "pythonPath": ".venv/bin/python"
-            }
-          }
+      "formatter": {
+        "external": {
+          "command": "ruff",
+          "arguments": ["format", "-"]
         }
-      }
+      },
+      "format_on_save": "on"
     },
     "Rust": {
       "formatter": "language_server",
@@ -84,6 +88,20 @@
     }
   },
   "features": {
-    "inline_completion_provider": "copilot"
+    "edit_prediction_provider": "zed"
+  },
+  "language_overrides": {
+    "Python": {
+      "format_on_save": "on",
+      "formatter": {
+        "external": {
+          "command": "bash",
+          "arguments": [
+            "-c",
+            "ruff check --select=I --fix --stdin-filename {buffer_path} | ruff format --stdin-filename {buffer_path}"
+          ]
+        }
+      }
+    }
   }
 }
